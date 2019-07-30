@@ -13,7 +13,6 @@ class Todo(db.Model):
     def __repr__(self):
         return '<Task %r>' % self.id
 
-
 @app.route("/", methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
@@ -28,6 +27,7 @@ def index():
     else:
         tasks = Todo.query.order_by(Todo.date_created).all()
         return render_template('index.html', tasks=tasks)
+
 @app.route("/delete/<int:id>")
 def delete(id):
     task_to_delete = Todo.query.get_or_404(id)
@@ -53,5 +53,6 @@ def update(id):
 if __name__ == "__main__":
     app.run(debug=True)
 
+#virtualenv env  - to create the virtualenv
 #activate env with
 # . env\Scripts\activate
