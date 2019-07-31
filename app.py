@@ -2,6 +2,14 @@ from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
+#Create DB
+#create app.config for database uri
+#three forward slashes is for relative path.
+#create database model (class Todo)
+#activate virutalenv 
+# then type in shell from pyfile import db (will import db object from model)
+# then type db.create_all() will create the db.
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
